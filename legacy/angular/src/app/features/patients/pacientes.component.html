@@ -1,0 +1,33 @@
+<div class="container conteudo">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-sm-12 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-rose text-center">
+          <i class="material-icons">pending_actions</i>
+          <h3 class="card-title">
+            Agendamentos
+          </h3>
+        </div>
+        <div class="card-body">
+          <div class="list-group">
+            <div class="card" *ngFor="let atendimentoProtocolo of atendimentosProtocolo">
+              <a href="#atendimentoProtocolo{{ atendimentoProtocolo.id }}" class="list-group-item list-group-item-action" data-toggle="modal">
+                <div class="d-flex w-100 justify-content-between">
+                  <div class="mb-1">
+                    Atendimento dia {{ atendimentoProtocolo.data
+                      .concat(' ')
+                      .concat(atendimentoProtocolo.hora) | date : 'dd/MM/yyyy hh:mm' }}
+                    </div>
+                  <small class="mb-1">{{ atendimentoProtocolo.status }}</small>
+                </div>
+                <p class="mb-1">Dr. {{ atendimentoProtocolo.nomeProfissional }}</p>
+                <small>{{ atendimentoProtocolo.registroProfissional }}</small>
+              </a>
+              <app-qrcode [atendimentoProtocolo]="atendimentoProtocolo" [value]="atendimentoProtocolo.protocolo | prettystring"></app-qrcode>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

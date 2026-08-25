@@ -1,0 +1,15 @@
+html {
+  font-size: 1rem;
+}
+
+body {
+  background-image: none;
+  height: 100%;
+  margin: 0;
+  padding: 1rem 2rem;
+  overflow: scroll;
+}
+
+#map {
+  height: 100%;
+}

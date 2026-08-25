@@ -1,0 +1,70 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="col-md-8 col-12 mr-auto ml-auto">
+      <div class="wizard-container">
+        <div class="card card-wizard active">
+          <div class="card-header card-header-rose text-center">
+            <i class="material-icons">pending_actions</i>
+            <h3 class="card-title">
+              Eventos
+            </h3>
+          </div>
+          <div [hidden]="escondeTabela" class="card-body">
+            <div class="material-datatables">
+              <div class="dataTables_wrapper dt-bootstrap4" id="datatables_wrapper">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table [hidden]="escondeTabela" cellspacing="0" class="table table-striped" id="datatables" style="width:100%"
+                           width="100%">
+                      <thead>
+                      <tr>
+                        <th>Evento</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th class="disabled-sorting text-center">Ações</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let evento of eventosFuturos">
+                        <td>{{ evento.titulo }}</td>
+                        <td>{{ evento.data }}</td>
+                        <td>{{ evento.hora }}</td>
+                        <td class="text-right">
+                          <button class="btn btn-link btn-rose btn-just-icon" routerLink="{{evento.id}}"
+                                  title="Ver detalhes">
+                            <i class="material-icons">visibility</i>
+                          </button>
+                          <button (click)="enviarSms(evento.id)" [disabled]="evento.status"
+                                  [ngClass]="(!evento.status) ? 'btn-success' : ''"
+                                  class="btn btn-link btn-just-icon"
+                                  title="Enviar" type="button">
+                            <i class="material-icons">send</i>
+                          </button>
+                          <button (click)="cancelarSms(evento.id)" [disabled]="evento.status"
+                                  [ngClass]="(!evento.status) ? 'btn-danger' : ''"
+                                  class="btn btn-link btn-just-icon"
+                                  title="Cancelar" type="button">
+                            <i class="material-icons">cancel_schedule_send</i>
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th>Evento</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th class="text-right">Ações</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

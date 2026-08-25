@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  background: var(--cc-default);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+:host .footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+:host .footer-brand { flex: 1 1 220px; min-width: 200px; }
+
+:host .brand {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+:host .brand-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--p-primary-400);
+  border-radius: 50%;
+  display: inline-block;
+}
+:host .brand-tagline { font-size: 0.85rem; line-height: 1.55; margin: 0 0 1.25rem; }
+
+:host .social-links { display: flex; gap: 0.75rem; padding: 0; margin: 0; list-style: none; }
+:host .social-links a {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  box-sizing: border-box;
+}
+:host .social-links a:hover { background: var(--p-primary-500); color: #fff; }
+:host .social-links .material-icons { font-size: 18px; line-height: 1; }
+
+:host .footer-nav {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  flex: 2 1 400px;
+  justify-content: flex-end;
+}
+:host .footer-col { min-width: 120px; }
+
+:host .col-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin: 0 0 1rem;
+  display: block;
+}
+
+:host .footer-col ul  { all: unset; display: flex; flex-direction: column; gap: 0.6rem; list-style: none; }
+:host .footer-col li  { all: unset; display: list-item; line-height: 1; }
+:host .footer-col a   { all: unset; font-size: 0.875rem; color: rgba(255,255,255,0.7); cursor: pointer; transition: color 0.15s; }
+:host .footer-col a:hover { color: #fff; }
+
+:host .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  font-size: 0.775rem;
+  color: rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  :host .footer-inner { flex-direction: column; gap: 2rem; }
+  :host .footer-nav   { justify-content: flex-start; }
+}

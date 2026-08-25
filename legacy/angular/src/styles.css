@@ -1,0 +1,16 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', var(--p-font-family, system-ui, sans-serif);
+  color: var(--p-text-color);
+  background-color: var(--p-surface-ground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --cc-shadow:    0 10px 30px rgba(0, 0, 0, 0.08);
+  --cc-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --cc-default:   #1e293b;
+}

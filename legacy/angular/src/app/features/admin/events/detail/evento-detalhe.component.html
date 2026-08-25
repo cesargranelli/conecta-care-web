@@ -1,0 +1,107 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="col-md-8 col-12 mr-auto ml-auto">
+      <div class="wizard-container">
+        <div class="card card-wizard active">
+          <div class="card-header card-header-rose text-center">
+            <i class="material-icons">visibility</i>
+            <h3 class="card-title">
+              Detalhes do Evento
+            </h3>
+          </div>
+          <div class="card-body">
+            <div [hidden]="escondeTabela" class="tab-content">
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="titulo">Título</label>
+                <div class="form-group col-lg-9 col-md-9">
+                  <input [value]="detalheEvento?.titulo" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="descricao">Descrição</label>
+                <div class="form-group col-lg-9 col-md-9">
+                  <input [value]="detalheEvento?.descricao" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="detalhe">Detalhe</label>
+                <div class="form-group col-lg-9 col-md-9">
+                  <textarea [value]="detalheEvento?.detalhe" class="form-control" disabled rows="3"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="cep">CEP</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.cep" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-3 col-form-label" for="logradouro">Endereço</label>
+                <div class="form-group col-lg-5 col-md-8">
+                  <input [value]="detalheEvento?.logradouro" class="form-control" disabled type="text">
+                </div>
+                <label class="col-lg-2 col-md-3 col-form-label" for="numero">Número</label>
+                <div class="form-group col-lg-2 col-md-8">
+                  <input [value]="detalheEvento?.numero" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-3 col-form-label" for="bairro">Bairro</label>
+                <div class="form-group col-lg-4 col-md-8">
+                  <input [value]="detalheEvento?.bairro" class="form-control" disabled type="text">
+                </div>
+                <label class="col-lg-2 col-md-3 col-form-label" for="cidade">Cidade</label>
+                <div class="form-group col-lg-3 col-md-8">
+                  <input [value]="detalheEvento?.cidade" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="data">Data</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.data" class="form-control text-right" disabled type="text">
+                </div>
+                <label class="col-lg-3 col-md-3 col-form-label" for="hora">Hora</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.hora" class="form-control text-right" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="vagas">Vagas</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.vagas" class="form-control text-right" disabled type="text">
+                </div>
+                <label class="col-lg-3 col-md-3 col-form-label" for="duracao">Duração em Horas</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.duracao" class="form-control text-right" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-2 col-form-label" for="estados">Região</label>
+                <div class="form-group col-lg-3 col-md-3">
+                  <input [value]="detalheEvento?.estado.uf" class="form-control" disabled type="text">
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-lg-2 col-md-3 col-form-label" for="areaAtendimento">Especialidade</label>
+                <div class="form-group col-lg-4 col-md-8">
+                  <table class="table">
+                    <tbody>
+                    <tr *ngFor="let especialidade of detalheEvento?.especialidades">
+                      <td>{{ especialidade.nome }}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer justify-content-between">
+            <span class="bmd-form-group is-filled">
+              <button class="btn btn-gray" routerLink="../" type="button">Voltar</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

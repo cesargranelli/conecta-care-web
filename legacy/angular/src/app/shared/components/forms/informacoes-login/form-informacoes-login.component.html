@@ -1,0 +1,108 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <div class="card card-login">
+    <div class="card-header card-header-rose text-center">
+      <div class="social-line">
+        <i class="material-icons">fingerprint</i>
+        <h4 class="card-title">Informações de Login</h4>
+      </div>
+    </div>
+    <div [hidden]="esconderFormulario" class="col-lg-12 col-md-12 col-sm-8 ml-auto mr-auto">
+      <p class="card-description text-center"></p>
+      <div [ngClass]="inputHas.validation(loginForm.controls.email)"
+           class="form-row justify-content-center form-control-lg">
+        <div class="col-lg-10 col-md-10 col-sm-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons">email</i>
+              </span>
+            </div>
+            <input autocomplete="false" class="form-control" formControlName="email" placeholder="Email" type="email">
+            <span class="form-control-feedback">
+              <i class="material-icons">{{ input.validation(loginForm.controls.email) }}</i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div [ngClass]="inputHas.validation(loginForm.controls.confirmarEmail)"
+           class="form-row justify-content-center form-control-lg">
+        <div class="col-lg-10 col-md-10 col-sm-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons">email</i>
+              </span>
+            </div>
+            <input autocomplete="false" class="form-control" formControlName="confirmarEmail" placeholder="Confirmar Email"
+                   type="email">
+            <span class="form-control-feedback">
+              <i class="material-icons">{{ input.validation(loginForm.controls.confirmarEmail) }}</i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center form-control-lg">
+        <div class="col-lg-10 col-md-10 col-sm-8">
+          <div [ngClass]="inputHas.validation(loginForm.controls.password)" class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons">lock_outline</i>
+              </span>
+            </div>
+            <input [title]="mensagemToolTip" class="form-control" data-html="true" data-placement="top"
+                   data-toggle="tooltip" data-trigger="click" formControlName="password" placeholder="Password"
+                   type="password">
+            <span class="form-control-feedback">
+              <i class="material-icons">{{ input.validation(loginForm.controls.password) }}</i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-row justify-content-center form-control-lg">
+        <div class="col-lg-10 col-md-10 col-sm-8">
+          <div [ngClass]="inputHas.validation(loginForm.controls.confirmarPassword)" class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="material-icons">lock_outline</i>
+              </span>
+            </div>
+            <input [title]="mensagemToolTip" class="form-control" data-html="true"
+                   data-placement="top"
+                   data-toggle="tooltip" data-trigger="click" formControlName="confirmarPassword" placeholder="Confirmar Password"
+                   type="password">
+            <span class="form-control-feedback">
+              <i class="material-icons">{{ input.validation(loginForm.controls.confirmarPassword) }}</i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="mostrarflagAceitePrivacidade">
+        <div class="form-row justify-content-center form-control-lg">
+          <div class="form-check col-lg-9 col-md-9 col-sm-8 col-form-label">
+            <label class="form-check-label">
+              <input class="form-check-input" formControlName="flagAceitePrivacidade" type="checkbox"
+                value="">
+              Eu aceito os <a href="">termos de política e privacidade do site </a>*
+              <span class="form-check-sign">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="card-footer justify-content-center">
+      <span class="bmd-form-group is-filled">
+        <app-recaptcha (captcha)="setCaptcha($event)"></app-recaptcha>
+      </span>
+    </div>
+    <div class="card-footer justify-content-between">
+      <span class="bmd-form-group is-filled">
+        <button [routerLink]="linkBotaoCancelar" class="btn btn-gray" type="button">Cancelar</button>
+      </span>
+      <span class="bmd-form-group is-filled">
+        <button [disabled]="!loginForm.valid || !captcha" class="btn btn-rose" type="submit">Enviar</button>
+      </span>
+    </div>
+  </div>
+</form>
